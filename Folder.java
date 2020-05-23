@@ -14,11 +14,15 @@ class Folder{
 			PrintWriter out=new PrintWriter(f);
 			out.println(Integer.parseInt(d)+1);
 			out.close();
+			out=new PrintWriter("copier.bat");
+			out.println("echo "+str+"|clip");
+			out.close();
 			new PrintWriter(new File(str+"\\Contents.txt")).close();
 			Runtime r=Runtime.getRuntime();
 			r.exec("explorer .\\"+str);
 			Thread.sleep(700);
-			r.exec("notepad "+str+"\\Contents.txt");	
+			r.exec("notepad "+str+"\\Contents.txt");
+			
 		}
 	}
 }
